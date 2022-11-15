@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getUrls } from '../../apiCalls';
+import { getUrls, postUrl } from '../../apiCalls';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
@@ -20,13 +20,7 @@ export class App extends Component {
   };
 
   addUrl = (newUrl) => {
-    fetch('http://localhost:3001/api/v1/urls', {
-      method: "POST",
-      body: JSON.stringify(newUrl),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
+    postUrl(newUrl)
     .then(response => response.json())
     .then(response => this.setState({urls: [...this.state.urls, response]}))
     .catch(error => this.setState({error: "Please make sure all input fields are filled out before submitting"}))
