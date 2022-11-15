@@ -37,6 +37,7 @@ class UrlForm extends Component {
           name='title'
           value={this.state.title}
           onChange={e => this.handleNameChange(e)}
+          className='titleInput'
         />
 
         <input
@@ -45,6 +46,7 @@ class UrlForm extends Component {
           name='urlToShorten'
           value={this.state.urlToShorten}
           onChange={e => this.handleNameChange(e)}
+          className='urlInput'
         />
 
         <button onClick={e => this.handleSubmit(e)}>
